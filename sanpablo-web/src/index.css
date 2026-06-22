@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-gray-100 text-gray-900 antialiased text-lg;
+    /* Evita el rebote/scroll elástico y la selección accidental de texto al tocar */
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+}
+
+@layer components {
+  /* Botón táctil base, reutilizable en toda la app.
+     min-h-touch = 3.5rem (56px) -> cómodo para el dedo en celu/tablet */
+  .btn-touch {
+    @apply min-h-touch flex items-center justify-center rounded-2xl font-semibold
+           text-xl transition active:scale-[0.97] select-none;
+  }
+}
